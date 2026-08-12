@@ -1,0 +1,47 @@
+{% extends 'adminbase.html'%}
+{% block admin %}
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Admin Dashboard</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>Total Users <i class="ti ti-user"></i></h4>
+            <h2>{{user_count}}</h2>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>Total Books <i class="ti ti-book"></i></h4>
+            <h2>{{book_count}}</h2>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>Total Orders <i class="ti ti-box"></i></h4>
+            <h2>{{order_count}}</h2>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>No. of Book categories <i class="ti ti-book"></i></h4>
+            <h2>{{category_count}}</h2>
+        </div>
+    </div>
+    
+     <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>Total Revenue <i class="ti ti-coin"></i></h4>
+            <h2>{{total_revenue}}</h2>
+        </div>
+    </div>
+     <div class="col-sm-4">
+        <div class="card p-5 text-center shadow h-100">
+            <h4>Total Enquiries <i class="ti ti-box"></i></h4>
+            <h2>(())</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}

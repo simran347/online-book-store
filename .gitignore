@@ -1,0 +1,6 @@
+.env
+myenv/
+__pycache__/
+*.pyc
+db.sqlite3
+EMAIL_HOST_PASSWORD = 'humeuddsljamrezr' 

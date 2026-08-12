@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin login</title>
+     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/style.css' %}">
+</head>
+<body>
+    
+
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+
+<div class="container-fluid">
+    <div class="row bg-warning" style="height: 100vh;">
+        <div class="col-sm-4 mx-auto my-auto">
+            <div class="card">
+                <div class="text-center">
+                    
+
+                </div>
+                <h4>Welcome Admin </h4>
+                
+                <form method="post">
+                    {% csrf_token %}
+                     {% if messages %}
+                    {% for m in messages %}
+                    <div class=" alert alert-success alert-dismissible fade show" role="alert">
+                        {{m}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
+                    {% endfor %}
+                    {% endif %}
+                    <div class="form-floating mb-3">
+  <input type="text" name="username" class="form-control" id="floatingInput" nqmid placeholder="name@example.com">
+  <label for="floatingInput">User name</label>
+</div>
+<div class="form-floating">
+  <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+                
+            
+            <button type="submit" class="btn-btn-dark mt-4 w-100">
+                login
+            </button>
+            <p class="mt-5">&copy;shiva <a href="" class="float-end fwsemibold">back to home</a>
+            </p>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</html>

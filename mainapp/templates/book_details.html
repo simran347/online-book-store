@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{%load static %}
+{% block title %}
+book details
+{% endblock %}
+{% block main %}
+
+<div class="row my-5">
+    <div class="col-sm-10 mx-auto shadow rounded-5 p-5">
+        <div class="row">
+            <div class="col-sm-4">
+                {% if book.cover_image %}
+                <img src="{{book.cover_image.url}}" class="img-fluid" alt="book">
+
+                {% endif%}
+            </div>
+            <div class="col-sm-8">
+                <h3>{{book.title}}</h3>
+                <p><strong>Author:</strong> {{book.author}} </p>
+                <p><strong>category:</strong> {{book.category.name}} </p>
+                <p><strong>Language:</strong> {{book.language}} </p>
+                <p><strong>Publish Date:</strong> {{book.published_date}} </p>
+                <p><strong>Discription:</strong> {{book.description}} </p>
+                <h5 class="text-danger"> &#8377<del>{{book.original_price}}</del></h5>
+                <h5 class="fw-normal"> Get it now at: <span class="text-success fw-bold">{{book.price}}</span> </h5>
+
+                <form method="post" action="{% url 'addtocart' id=book.id %}">
+                    {% csrf_token %}
+                    Qty:<input type="number" name="quantity" value="1" style="width: 50px;">
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                </form>
+
+                <a href="#" class="btn btn-success">Buy Now</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

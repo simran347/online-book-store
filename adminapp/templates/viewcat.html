@@ -1,0 +1,32 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>View Book</h3>
+        <table class="table">
+         <tr>
+            <th>S.No</th>
+            <th>Category name</th>
+            <th>Discription</th>
+            <th>Action</th>
+         </tr>
+         {% for cat in cats %}
+         <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ cat.name }}</td>
+            <td>{{ cat.description }}</td>
+            <td>{{ cat.catdate }}</td>
+            <td>
+                <a href="{% url 'delcat' id=cat.id %}" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></a>
+             </td>
+         </tr>
+         {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

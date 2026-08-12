@@ -1,0 +1,23 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+<h3>View orders</h3>
+<table class="table">
+    <tr>
+        <th>S.No</th>
+        <th>Order ID</th>
+        <th>Ordered By</th>
+        <th>Ordered At</th>
+        <th>Order Amount</th>
+    </tr>
+    {% for x in orders %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{x.id}} </td>
+        <td>{{x.ordered_at}} </td>
+        <td>{{x.total_amount}} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</div>
+{% endblock %}

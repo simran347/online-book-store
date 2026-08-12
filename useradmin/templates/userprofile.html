@@ -1,0 +1,34 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block user %}
+<div class="row">
+    <div class="col-sm-12">
+        <h3>my profile</h3>
+    </div>
+    <div class="col-sm-4">
+      <div class="card shadow rounded-4">
+        <div class="text-center">
+            {% if user.profile %}
+            
+            <img src="{{ user.profile.url }}" class="rounded-circle" width="150" height="150" >
+            {% else %}
+            <img src="https://thfvnext.bing.com/th/id/OIP.l_JoEHhl6ajlhj7tBwblYAHaLH?w=131&h=197&c=7&r=0&o=7&cb=thfvnext&dpr=1.3&pid=1.7&rm=3" class="rounded-circle" width="150" height="150" alt="">
+            {% endif %}
+            <h4>{{user.name}}</h4>
+
+        </div>
+        <hr>
+        <p>
+            <strong>Contact no</strong>:{{ user.contactno }}
+            <br>
+            <strong>Email</strong>:{{ user.email }}
+            <br>
+            <strong>Address</strong>:{{ user.address }}
+        </p>
+          <hr>
+          <a href="{% url 'editprofile' %}" class="btn btn-success">Edit profile</a>
+      </div>
+    </div>
+</div>
+{% endblock %}

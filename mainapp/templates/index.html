@@ -1,0 +1,447 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+  <!--home section start-->
+  <div class="row p-0">
+    <div class="col-sm-12  p-0">
+
+      <div class="row p-0">
+        <div class="col-sm-12 p-0" data-aos="fade-up-right"  data-aos-delay="300">
+          <img src="{% static 'img/nav.jpg' %}" alt=""   class="img-fluid">
+        </div>
+       <div class="row p-0">
+        <div class="col-sm-5 p-0" data-aos="fade-up-right" >
+          <img src="{% static 'img/rakhi-banner.jpg' %}" alt="" style="height:322px; width:670px;">
+        </div>
+        <div class="col-sm-4 ms-4 p-0" data-aos="fade-left" data-aos-delay="300">
+          <img src="{% static 'img/4_inr.jpg' %}" alt="" style="width:885px;">
+        </div>
+       </div>
+       <div class="row p-0">
+        <div class="col-sm-5" data-aos="fade-up-right" data-aos-delay="300">
+          <img src="{% static 'img/WTR.png' %}" alt="" style="height:300px; width:650px;" >
+        </div>
+        <div class="col-sm-6" data-aos="fade-left" data-aos-delay="300">
+          <img src="{% static 'img/regionae.jpg' %}" alt="" style="height:300px; width:885px;" >
+        </div>
+       </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+<!--home section  end-->
+<!--free shiping start-->
+<div class="row mx-auto p-4 mx-3 bg-white text-center ">
+
+  <div class="col-sm-10 d-flex justify-content-around py-5" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000" >
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3><i class="fa-solid fa-truck-fast" style="color: #6fec09;"></i>Free shipping</h3>
+    <br>
+    <!--<p>order over $100</p>-->
+    <h3><i class="fa-solid fa-lock" style="color: #7ae90c;"></i>Secure payment</h3>
+    <!--<br><p>100 secure payment</p>-->
+    <h3><i class="fa-solid fa-rotate-left" style="color: #12de34;"></i>Easy Returns</h3>
+    <!--<p>10 days returna</p>-->
+    <h3><i class="fa-solid fa-headset" style="color: #57ee20;"></i>24/7 Support</h3>
+    <!--<p>Call Us Anytime</p>-->
+  </div>
+</div>
+<!--free shiping end-->
+<!--featured box start-->
+
+<div class="row">
+</div>
+<div class="row">
+
+</div>
+<div class="col-sm-12">
+  <div class="col-sm-12" data-aos="fade-up"
+     data-aos-duration="3000">
+  <h2 class="text-center">
+    featured books
+  </h2>
+  <section class="splide" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list">
+     {% for b in books %}
+			<li class="splide__slide p-4">
+         <a href="{% url 'book_details' id=b.id %}" style="text-decoration: none;"> <div class="card h-100 shadow border-0 newscard2" >
+            {% if b.cover_image %}
+          <img src="{{b.cover_image.url}}" class="card-img-top object-fit-contain" alt="..." height="250px">
+            {% else %}
+          <img src="{% static 'img/si.jpg' %}" class="card-img-top object-fit-contain" alt="..." height="250px">
+            {% endif %}
+          <div class="card-body">
+            <h4>{{b.title}}</h4>
+            <p class="card-text">
+             &#8377; {{b.price}} <del>{{b.original_price }}</del>
+            </p>
+            <form action="{% url 'addtocart' id=b.id %}" method="POST">
+              <a href="" class="btn btn-primary">Add to cart</a>
+              </form>
+          </div >
+        </div></a>
+      </li>
+    {% endfor %}
+		</ul>
+  </div>
+</section>
+</div>
+
+</div>
+</div>
+
+<br>
+
+<!--features box end-->
+<!--student image start-->
+<div class="row d-flex" id="studentimg">
+  <div class="col-sm-12 " style=" padding: 20px;" data-aos="flip-left "
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+    <h3 class="me-2" style="margin-left:1100px; color:red;">Subscribes for latest updates</h3>
+    <input type="text" placeholder="Enter your email"
+      style="margin-left:1100px; width: 300px; height: 40px; border-radius: 20px; border: 1px solid rgb(180, 19, 19); padding-left: 20px; margin-top:20px;">
+  </div>
+
+
+</div>
+
+<!--student image end-->
+<!--new images start-->
+<div class="row">
+  <div class="col-sm-10 mx-auto">
+    <h1 class="d-flex justify-content-center">Vedic books</h1>
+    <br>
+    <div class="row">
+      <div class="row row-cols-1 row-cols-sm-3 g-2">
+  <div class="col-sm-3" data-aos="fade-down-right">
+    <div class="card h-70 shadow border-0 newscard2">
+      <img src="{% static 'img/OIP (1).jpg' %}" class="card-img-top" alt="..." height="250px;" width="200">
+      <div class="card-body" >
+        <h5 class="card-title"><b><a href=""  style="text-decoration: none; color:black;">kalidas</a></b></h5>
+        <p><a href="" style="text-decoration: none; color:black;"> &#8377;500 {{b.price}} <del>{{b.original_price }}</del></a></p>
+              <a href="" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"data-aos="flip-left">
+    <div class="card h-70 shadow border-0 newscard2">
+      <img src="{% static 'img/OIP (1).webp' %}" class="card-img-top" alt="..."height="250px;" width="200">
+      <div class="card-body">
+        <h5 class="card-title"><b><a href=""  style="text-decoration: none; color:black;">the holy vedas</a></b></h5>
+        <p><a href="" style="text-decoration: none; color:black;"> &#8377;500 {{b.price}} <del>{{b.original_price }}</del></a></p>
+              <a href="" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"data-aos="fade-down-right">
+    <div class="card mb-3 h-95 shadow border-0 newscard2">
+      <img src="{% static 'img/OIP (2).jpg' %}" class="card-img-top" alt="..." height="250px;" width="200">
+      <div class="card-body">
+        <h5 class="card-title"><b><a href=""  style="text-decoration: none; color:black;">Ved Vayasa</a></b></h5>
+       <p><a href="" style="text-decoration: none; color:black;"> &#8377;500 {{b.price}} <del>{{b.original_price }}</del></a></p>
+              <a href="" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3" data-aos="fade-down-left">
+    <div class="card mb-3 h-70 shadow border-0 newscard2">
+      <img src="{% static 'img/download.webp' %}" class="card-img-top" alt="..." height="250px;" width="200">
+      <div class="card-body">
+        <h5 class="card-title"><b><a href="" style="text-decoration: none; color:black">Rig Veda</a></b></h5>
+        <p class="card-text">
+            <a href="" style="text-decoration: none; color:black;"> &#8377;500 {{b.price}} <del>{{b.original_price }}</del></a>
+            </p>
+              <a href="" class="btn btn-primary">Add to cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<!--new images end-->
+<hr>
+<!--new arrivals start-->
+
+<div class="row">
+
+  <div class="col-sm-10 mx-auto id= newarrivals">
+    <h1 class="d-flex justify-content-center">New Arrivals</h1>
+    <br>
+    <div class="row">
+      <div class="col-sm-4" data-aos="fade-right">
+        <div class="card mb-3 h-100 shadow border-0 newscard2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/mi.webp' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#" style="color:rgb(47, 45, 45); text-decoration: none; ">The
+                    physiology of money</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" data-aos="flip-up">
+        <div class="card mb-3 h-100 shadow border-0 newscard2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/book3.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#" style="color:rgb(47, 45, 45); text-decoration: none; ">Waiting
+                    for godot</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" data-aos="fade-left">
+        <div class="card mb-3 h-100 shadow border-0 newscard2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/si.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#" style="color:rgb(47, 45, 45); text-decoration: none; ">The
+                    physiology of money</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="row ">
+  <div class="col-sm-10 mx-auto">
+    <div class="row ">
+      <div class="col-sm-4" data-aos="fade-right">
+        <div class="card mb-3 h-100 shadow border-0 newscard2 my-2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/97803.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#" style="color:rgb(47, 45, 45); text-decoration: none; ">Deep work</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" data-aos="flip-up">
+        <div class="card mb-3 h-100 shadow border-0 newscard2 my-2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/97801.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#" style="color:rgb(47, 45, 45); text-decoration: none; ">Wise And Other Wise</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" data-aos="fade-left">
+        <div class="card mb-3 h-100 shadow border-0 newscard2 my-2" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{% static 'img/97.jpg' %}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 style="margin-top: 15px;"><a href="#"
+                    style="color:rgb(47, 45, 45); text-decoration: none; ">Work Power Made Easy</a></h3>
+                <h4 style="color:grey;">499</h4>
+                <p><i class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star"
+                    style="color: #2dd741;"></i><i class="fa-solid fa-star" style="color: #2dd741;"></i><i
+                    class="fa-solid fa-star" style="color: #2dd741;"></i><i class="fa-solid fa-star-half-stroke"
+                    style="color: #58ec22;"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+</div>
+<!--new arrivals end-->
+<!--50%start-->
+
+  <div class="row p-0">
+    <div class="col-sm-8 p-0 " style="background-color: rgb(180, 238, 149); height:400px; width:930px; margin-left:10px ;" data-aos="fade-down-right">
+     <h2 style="margin-top: 70px; margin-left: 25px;" ><b><span style="color:rgb(239, 127, 36); " >deal of the day</span></b></h2>
+     <h1 style="margin-left: 25px;"><b><span  >upto 50% off</span></b></h1>
+     <p style="margin-left: 25px;"><span style="color:rgb(56, 157, 234)" >Good news for you, if you buy any book on Saturday and Sunday you will get 50% <br> off and also you will get free delivery.</span></p>
+     <br>
+                <button type="button" class="btn btn-success" style="margin-left: 25px;">Shop Now</button>
+    </div>
+    <div class="col-sm-4 p-0 "data-aos="fade-down-left">
+      <img src="{% static 'img/images (7).jpg' %}"  alt="..." style="height:400px; width:580px;" >
+    </div>
+  </div>
+
+<!--50% end-->
+<!--client reviews start-->
+<div class="row">
+  <div class="col-sm-10 mx-auto">
+    <h3 class="d-flex justify-content-center py-5">Client Reviews</h3>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-10 d-flex">
+        <div class="clo-sm-4 d-flex p-2 "data-aos="flip-left">
+          <div style="height:300px; width:400px; border:1px solid black;">
+            <div
+              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              <img src="{% static 'img/pic-2.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
+            </div>
+            <div style="height:180px; width:400px;  ">
+              <h4 style="text-align: center;">juliana</h4>
+              <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
+                Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also
+                Be Done Easily.</p>
+            </div>
+          </div>
+        </div>
+        <div class="clo-sm-4 d-flex p-2"data-aos="flip-up">
+          <div style="height:300px; width:400px; border:1px solid black;">
+            <div
+              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              <img src="{% static 'img/pic-3.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
+            </div>
+            <div style="height:180px; width:400px;  ">
+              <h4 style="text-align: center;">Joy</h4>
+              <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
+                Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also
+                Be Done Easily.</p>
+            </div>
+          </div>
+        </div>
+        <div class="clo-sm-4 d-flex p-2 "data-aos="flip-right">
+          <div style="height:300px; width:400px; border:1px solid black;">
+            <div
+              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              <img src="{% static 'img/pic-4.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
+            </div>
+            <div style="height:180px; width:400px;  ">
+              <h4 style="text-align: center;">Oliveya</h4>
+              <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
+                Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also
+                Be Done Easily.</p>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--client reviews end-->
+    
+    <!--our blogs start-->
+    <div class="row">
+      <div class="col-sm-1o mx-auto p-2 my-5"data-aos="zoom-out">
+        <div class="row">
+          <h3 style="text-align: center;">Our Blogs</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static 'img/blog-4.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">The Quite BookWorm</h5>
+                  <p class="card-text" style="font-size: smaller;">
+                  <p style="color:grey;">Book Is Very Beneficial For Our Life. We Should Read A Book Daily, IT Sharpens
+                    The Mind. All The Successful People Of The World Read The Book Every Day.</p>
+                  <button type="button" class="btn btn-success">Shop Now</button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static 'img/blog-5.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">The Quite BookWorm</h5>
+                  <p class="card-text" style="font-size: smaller;">
+                  <p style="color:grey;">Book Is Very Beneficial For Our Life. We Should Read A Book Daily, IT Sharpens
+                    The Mind. All The Successful People Of The World Read The Book Every Day.</p>
+                  <button type="button" class="btn btn-success">Shop Now</button>
+                </div>
+
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static 'img/blog-3.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">The Quite BookWorm</h5>
+                  <p class="card-text ju" style="font-size: smaller; ">
+                  <p style="color:grey;">Book Is Very Beneficial For Our Life. We Should Read A Book Daily, IT Sharpens
+                    The Mind. All The Successful People Of The World Read The Book Every Day. </p>
+
+
+                  <button type="button" class="btn btn-success">Shop Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!--our blogs end-->
+    <!-- Featured Section -->
+
+    {% endblock %}

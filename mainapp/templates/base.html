@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Point</title>
+
+
+  <!-- Stylesheets -->
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body style="overflow-x: hidden;">
+  <div class="container-fluid">
+
+    <!-- Header Section -->
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 class="p-2" style="margin-left:100px; margin-top:10px; color:black;">
+          <i class="fa-solid fa-book" style="color: #1bc54e;"></i> Book Point
+        </h3>
+      </div>
+      <div class="col-sm-4">
+        <div style="height:40px; width:500px; border:1px solid black; margin-top:15px;" class="p-2">
+          Search here...
+        </div>
+      </div>
+      <div class="col-sm-4" >
+        
+        {% if userid %}
+         <div class="dropdown" style="margin-left: 300px;">
+              <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{userid}}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'userdash' %}">Dashboard</a></li>
+                <li><a class="dropdown-item" href="{% url 'viewcart' %}">Cart</a></li>
+                <li><a class="dropdown-item" href="{% url 'login' %}">Logout</a></li>
+              </ul>
+            </div>
+            {%  else %}
+            <span class="float-end"><a href="{% url 'login' %}" class="btn btn-success text-white mt-4">Login</a></span>
+         {% endif %} 
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="row bg-success ">
+      <div class="col-sm-12 p-0">
+        <ul class="nav justify-content-center my-2">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'index' %}" style="color:white;">Home</a>
+          </li>
+          
+          <li class="nav-item">
+           
+            <a class="nav-link" href="{% url 'login' %}" style="color:white;">login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}" style="color:white;">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}" style="color:white;">Contact</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}" style="color:white;">About</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    {% block main %}
+    {% endblock %}
+
+
+    <!-- Footer Section -->
+    <div class="row bg-light">
+      <div class="col-sm-10 mx-auto">
+        <div class="row p-2">
+          <div class="col-sm-3">
+            <h3>Our location</h3>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-location-dot"
+                style="color: #19d77e;"></i>India</a><br>
+
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-location-dot"
+                style="color: #19d77e;"></i>USA</a><br>
+
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-location-dot"
+                style="color: #19d77e;"></i>Russia</a><br>
+
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-location-dot"
+                style="color: #19d77e;"></i>France</a><br>
+
+            <a href="#" style="color:grey; text-decoration: none;""><i class=" fa-solid fa-location-dot"
+              style="color: #19d77e;"></i>Japan</a>
+          </div>
+          <div class="col-sm-3">
+            <h3>Quick links</h3>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Home</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Categories</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>About</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Contact</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Register</a><br>
+
+
+          </div>
+          <div class="col-sm-3">
+            <h3>Extra Links</h3>
+
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Account info</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Ordered items</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>privacy policy</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Payment methods</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
+                style="color: #29e90b;"></i>Our services</a><br>
+          </div>
+          <div class="col-sm-3">
+            <h3>Contact Info</h3>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-phone-flip"
+                style="color: #1fffbc;"></i>+91 9794309753</a><br>
+            <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-phone-flip"
+                style="color: #1fffbc;"></i>+91 9794309753</a><br><br>
+
+            <p><a href="mailto:softpro.Asif@gmail.com"
+                style="color:grey; text-decoration: none;">softpro.Asif@gmail.com</a></p><br>
+
+            <!-- Working Image -->
+            <img src="{% static 'img/worldmap.png' %}" alt="Book Image" class="img-fluid mt-2">
+          </div>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="row">
+          <div class="col-sm-12 d-flex justify-content-center mt-3">
+            <i class="fa-brands fa-facebook fa-2x mx-2" style="color: #11dfa1;"></i>
+            <i class="fa-brands fa-twitter fa-2x mx-2" style="color: #09ce0c;"></i>
+            <i class="fa-brands fa-square-instagram fa-2x mx-2" style="color: #0ee174;"></i>
+            <i class="fa-brands fa-linkedin fa-2x mx-2" style="color: #11d48a;"></i>
+            <i class="fa-brands fa-pinterest fa-2x mx-2" style="color: #58cd0a;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <HR>
+    </HR>
+    <h3 class="d-flex justify justify-content-center text-decoration-none" style="color:grey">Created by <a href="#"
+        style="color:biue; text-decoration:none;">SimranTiwari </a> |
+      all rights reserved</h3>
+  </div>
+
+  <!-- Bootstrap Script -->
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'js/splide.min.js' %}"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    var splide = new Splide('.splide', {
+      type: 'loop',
+      perPage: 5,
+      perMove: 1,
+      autoplay: true,
+      breakpoints: {
+        1200: { perpage: 5 },
+        640: { perpage: 2 },
+        400: { perpage: 2 },
+      },
+    });
+
+
+    splide.mount();
+
+
+    var splide = new splide('#new_arrivals', {
+      type: 'loop',
+      perpage: 3,
+      perMove: 1,
+      autoplay: true,
+    });
+    splide.mount();
+  </script>
+</body>
+
+</html>

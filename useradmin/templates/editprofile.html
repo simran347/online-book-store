@@ -1,0 +1,37 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block user %}
+<div class="row">
+    <div class="col-sm-12">
+        <h3>edit profile</h3>
+        <form method="post" enctype="multipart/form-data" clas="row mt-4 g-3" >
+            {% csrf_token %}
+            <div class="col-sm-6">
+                <label for="n" class="form-label" >Name</label>
+                <input type="text" name="name" value="{{user.name}}" id="n" class="form-control" >
+            </div>
+<div class="col-sm-6">
+                <label for="cn" class="form-label" >Contactno</label>
+                <input type="text" name="contactno" value="{{user.contactno}}" id="cn" class="form-control" >
+                <div class="col-sm-6">
+                <label for="en" class="form-label" >Email id</label>
+                <input type="text" name="email" value="{{user.email}}" id="en" class="form-control" disabled>
+                </div>
+                <div class="col-sm-6">
+                <label for="dn" class="form-label" >Upload profile</label>
+                <input type="file" name="profile" value="{{user.profile}}" id="pic" class="form-control" >
+            </div>
+            <div class="col-sm-12">
+                <label for="fn" class="form-label" >Address</label>
+                <textarea name="address" id="fn" class="form-control" >{{use.address}}</textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success" >save</button>
+                </div>
+        </form>
+    </div>
+    
+    
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'adminbase.html'%}
+{% block admin%}
+<div class="row">
+    <div class="col-sm-12">
+        <h1>hiii viwebook here</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>S.no</th>
+                    <th>tittle</th>
+                    <th>Auther</th>
+                    <th>book category</th>
+                    <th>Original Price</th>
+                    <th>Price</th>
+                    <th>Published</th>
+                    <th>Language</th>
+                    <th>cover image</th>
+                    <th>Stocks</th>
+                    <th>Added At</th>
+                    <th>Action</th>
+                </tr>
+                {% for b in books %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{b.title}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.category}}</td>
+                    <td>{{b.original_price}}</td>
+                    <td>{{b.price}}</td>
+                    <td>{{b.published_date}}</td>
+                    <td>{{b.language}}</td>
+                    <td>
+                        {% if b.cover_image %}
+                        <img src="{{b.cover_image.url}}" alt="cover" height="70" width="80">
+                        {% else %}
+                        no cover image
+                        {% endif %}
+                    </td>
+                    <td>{{b.stock}}</td>
+                    <td>{{b.created_at}}</td>
+                    <td>
+                        <a href="{% url 'delenq' id=b.id %}" class="btn btn-danger">Delete</a>
+                        <a href="" class="btn btn-danger">Edit</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

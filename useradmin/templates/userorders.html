@@ -1,0 +1,29 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block user %}
+<div class="row">
+    <div class="col-sm-12">
+
+<h3>my orders</h3>
+{% for items in order_items %}
+<table class="table">
+<tr class="tabel-success">
+    <th>Order ID</th>
+    <th>Book Name</th>
+    <th>Price</th>
+</tr>
+{% for j in items %}
+<tr>
+    <td>{{ j.order_id }}</td>
+    <td>{{j.book.title}}</td>
+    <td>{{j.quantity}}</td>
+    <td>{{j.book.price}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}

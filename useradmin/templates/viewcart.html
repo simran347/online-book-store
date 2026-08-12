@@ -1,0 +1,55 @@
+{% extends 'userbase.html' %}
+{% block user %}
+<div class="row">
+    <div class="col-sm-12">
+        <h3>New cart</h3>
+        {% if items %}
+        <table class="table">
+            
+            <tr>
+                <th>S.No</th>
+                <th>Book Name</th>
+                <th>Book Category</th>
+                <th>Image</th>
+                <th>Author</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+                {% for i in items %}
+            </tr>
+
+            <td>{{ forloop.counter }}</td>
+            <td>{{i.book.title}}</td>
+            <td>{{i.book.category.name}}</td>
+            <td>
+                {% if i.book.cover_image %}
+                <img src="{{i.book.cover_image.url}}" alt="" height="70">
+                {% else %}
+                No cover image
+                {% endif %}
+            </td>
+            <td>{{i.book.author}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.book.price}}</td>
+            <td>
+                <a href="{% url 'removeitem' id=i.book.id %}" class="btn btn-danger">Delete</a>
+            </td>
+            {% endfor %}
+            <tr>
+                
+                <td colspan="6"><h4>Total Price:&#8377;{{total}}</h4></td>
+                <td colspan="2"><a href="{% url 'checkout' %}" class="btn btn-success">Proceed To Payment</a></td>
+            </tr>
+        </table>
+        {% else %}
+        <p class="text-center">Your cart is empty
+            <br>
+            <a href="{% url 'index' %}">Continue shopping</a>
+        </p>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}

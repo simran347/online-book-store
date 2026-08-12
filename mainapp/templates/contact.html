@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+contact us
+{% endblock %}
+
+{% block main %}
+<div class="row "style="background-image: url('{% static "img/images (9).jpg" %}'); background-repeat:no-repeat; background-size:cover;">
+    <div class="col-sm-10 mx-auto" style=" padding: 20px; border-radius: 10px;">
+        <h1 class="text-center my-4">Contact Us</h1>
+        <p class="text-center">We would love to hear from you! Please fill out the form below to get in touch.</p>
+    </div>
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-6 bg-light  py-4">
+                <h4>Get in touch</h4>
+                <div class="mb-3 py-3">
+                    {% if messages %}
+                    {% for m in messages %}
+                    <div class=" alert alert-success alert-dismissible fade show" role="alert">
+                        {{m}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div> 
+                    {% endfor %}
+                    {% endif %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="Name"> <span><i class="fa-solid fa-user fa-2x my-3"
+                                    style="color: #06e970;"></i></label></span>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="Email"><i class="fa-solid fa-envelope fa-2x " style="color: #06e970;"></i></label>
+                    <input type="email" class="form-control" name="email" id="Email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="Phone"><i class="fa-solid fa-phone-flip fa-2x" style="color: #06e970;"></i></label>
+                    <input type="text" name="contactno" class="form-control" id="Phone" placeholder="Phone">
+                </div>
+                <div class="mb-3">
+                    <label for="Phone"><i class="fa-solid fa-phone-flip fa-2x" style="color: #06e970;"></i></label>
+                    <input type="text" name="subject" class="form-control" id="Phone" placeholder="Subject">
+                </div>
+                <div class="mb-3">
+                    <label for="Your Message"><i class="fa-solid fa-book fa-2x" style="color: #06e970;"></i></label>
+                    <textarea class="form-control" name="message" id="Your Message" rows="3"
+                        placeholder=" your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+            <div class="col-sm-5 bg-light mx-4 p-2">
+                <h4>Contact Information</h4>
+                <br><br>
+                <p class="mx-5 m-0" style="color:grey; font-size: large;">60 feet road</p>
+                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-location-dot"
+                        style="color: #19d77e;"></i>Jankipuram Extention, Lucknow</p>
+                <p class="mx-5 m-0" style="color:grey; font-size: large;">Uttar Pradesh, India</p>
+                <br>
+                <p class="mx-4 m-0" style="color:grey; font-size: large;"> <i class="fa-solid fa-phone-flip "
+                        style="color: #06e970;"></i>+91 8853455765 +91 8853455765</p>
+                <br>
+                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-envelope  "
+                        style="color: #06e970;"></i>starterbob7318@gmail.com</p>
+                <br>
+                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-clock-five"
+                        style="color: #4c9d15;"></i>Monday - Friday: 9am to 6pm Saturday: 10am to 4pm</p>
+            </div>
+        </div>
+<br>
+<br>
+<br>
+<br>
+    </div>
+    <br>
+    <br><br>
+</div>
+</form>
+<br>
+<br>
+<br>
+{% endblock %}
