@@ -7,10 +7,10 @@ login
 
 {% block main %}
 <div class="container-fluid">
-    <div class="row mt-5 " style="background-image: url('{% static "img/download (9).jpg" %}'); background-repeat:no-repeat; background-size:cover;" >
-        <div class="col-sm-9 mx-auto shadow">
-            <div class="row">
-                <div class="col-sm-6 p-3">
+    <div class="row my-5 justify-content-center" style="background-image: url('{% static "img/images (9).jpg" %}'); background-repeat:no-repeat; background-size:cover; height:700px;" >
+        <div class="col-sm-12 my-5 shadow text-center">
+            <div class="row   justify-content-center">
+                <div class="col-sm-6 p-3 my-5 text-center" >
                     {% if messages %}
                     {% for m in messages %}
                     <div class=" alert alert-success alert-dismissible fade show" role="alert">
@@ -19,13 +19,14 @@ login
                     </div> 
                     {% endfor %}
                     {% endif %}
-                    <form method="post" class="p-3">
+                    <form method="post" class="p-3 my-2">
                         {% csrf_token %}
-                        <h1 class=" text-center">login</h1>
+                        <h1 class=" text-center " >login</h1>
+                        <br>
                         <div class="form-floating mb-3">
                             <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
 
-                            <label for="floatingInput"><i class="fa-regular fa-user" style="color:green;"></i> Email
+                            <label for="floatingInput"><i class="fa-regular fa-user" style="color: green;"></i> Email
                                 address</label>
                         </div>
                         <div class="form-floating">
@@ -38,10 +39,10 @@ login
                         </div>
                         </form>
                 </div>
-                <div class="col-sm-6 py-5">
+                <!-- <div class="col-sm-6 py-5">
                     <img src="{% static 'img/download (10).jpg' %}" alt="" style="height:500px; width:500px;"
                         class="img-fluid">
-                </div>
+                </div> -->
                 <br>
                 <br>
             </div>
@@ -53,9 +54,6 @@ login
 
     </div>
 </div>
-</form>
-
-
 
 
 
