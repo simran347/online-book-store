@@ -2,81 +2,102 @@
 {% load static %}
 
 {% block title %}
-contact us
+Contact Us
 {% endblock %}
 
 {% block main %}
-<div class="row "style="background-image: url('{% static "img/images (9).jpg" %}'); background-repeat:no-repeat; background-size:cover;">
-    <div class="col-sm-10 mx-auto" style=" padding: 20px; border-radius: 10px;">
-        <h1 class="text-center my-4" style="color: #1F2937;">Contact Us</h1>
-        <p class="text-center" >We would love to hear from you! Please fill out the form below to get in touch.</p>
-    </div>
-    <div class="col-sm-10 mx-auto">
-        <div class="row">
-            <div class="col-sm-6 bg-light  py-4">
-                <h4>Get in touch</h4>
-                <div class="mb-3 py-3">
-                    {% if messages %}
-                    {% for m in messages %}
-                    <div class=" alert alert-success alert-dismissible fade show" role="alert">
-                        {{m}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div> 
-                    {% endfor %}
-                    {% endif %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <label for="Name"> <span><i class="fa-solid fa-user fa-2x my-3"
-                                    style="color: #06e970;"></i></label></span>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
-                </div>
-                <div class="mb-3">
-                    <label for="Email"><i class="fa-solid fa-envelope fa-2x " style="color: #06e970;"></i></label>
-                    <input type="email" class="form-control" name="email" id="Email" placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="Phone"><i class="fa-solid fa-phone-flip fa-2x" style="color: #06e970;"></i></label>
-                    <input type="text" name="contactno" class="form-control" id="Phone" placeholder="Phone">
-                </div>
-                <div class="mb-3">
-                    <label for="Phone"><i class="fa-solid fa-phone-flip fa-2x" style="color: #06e970;"></i></label>
-                    <input type="text" name="subject" class="form-control" id="Phone" placeholder="Subject">
-                </div>
-                <div class="mb-3">
-                    <label for="Your Message"><i class="fa-solid fa-book fa-2x" style="color: #06e970;"></i></label>
-                    <textarea class="form-control" name="message" id="Your Message" rows="3"
-                        placeholder=" your message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+<div class="container-fluid">
+    <div class="row my-5 py-5 mx-0" style="background: linear-gradient(135deg, #198754 0%, #146c43 100%);">
+        <div class="col-sm-10 mx-auto">
+            <div class="text-center text-white mb-5">
+                <p class="text-uppercase fw-bold mb-2">Talk to us</p>
+                <h1 class="display-5 fw-bold">Contact Us</h1>
+                <p class="fs-5">We would love to hear from you.</p>
             </div>
-            <div class="col-sm-5 bg-light mx-4 p-2">
-                <h4>Contact Information</h4>
-                <br><br>
-                <p class="mx-5 m-0" style="color:grey; font-size: large;">60 feet road</p>
-                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-location-dot"
-                        style="color: #19d77e;"></i>Jankipuram Extention, Lucknow</p>
-                <p class="mx-5 m-0" style="color:grey; font-size: large;">Uttar Pradesh, India</p>
-                <br>
-                <p class="mx-4 m-0" style="color:grey; font-size: large;"> <i class="fa-solid fa-phone-flip "
-                        style="color: #06e970;"></i>+91 8853455765 +91 8853455765</p>
-                <br>
-                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-envelope  "
-                        style="color: #06e970;"></i>starterbob7318@gmail.com</p>
-                <br>
-                <p class="mx-4 m-0" style="color:grey; font-size: large;"><i class="fa-solid fa-clock-five"
-                        style="color: #4c9d15;"></i>Monday - Friday: 9am to 6pm Saturday: 10am to 4pm</p>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow rounded-4 h-100">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4" style="color:#1F2937;">Send us a message</h3>
+
+                            {% if messages %}
+                                {% for m in messages %}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ m }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="name">Name</label>
+                                        <input type="text" name="name" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="email">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="phone">Phone</label>
+                                        <input type="text" name="contactno" class="form-control" id="phone">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="subject">Subject</label>
+                                        <input type="text" name="subject" class="form-control" id="subject" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="message">Your message</label>
+                                        <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success px-5 mt-4">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow rounded-4 h-100">
+                        <div class="card-body p-4 p-md-5">
+                            <h3 class="mb-4" style="color:#1F2937;">Contact Information</h3>
+
+                            <div class="d-flex mb-4">
+                                <i class="fa-solid fa-location-dot fa-lg text-success mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Address</h6>
+                                    <p class="text-secondary mb-0">Jankipuram Extension, Lucknow<br>Uttar Pradesh, India</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <i class="fa-solid fa-phone-flip fa-lg text-success mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Phone</h6>
+                                    <p class="text-secondary mb-0">+91 8853455765</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <i class="fa-solid fa-envelope fa-lg text-success mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Email</h6>
+                                    <p class="text-secondary mb-0">starterbob7318@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <i class="fa-solid fa-clock fa-lg text-success mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-1">Business hours</h6>
+                                    <p class="text-secondary mb-0">Monday-Friday: 9am-6pm<br>Saturday: 10am-6pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-<br>
-<br>
-<br>
-<br>
     </div>
-    <br>
-    <br><br>
 </div>
-</form>
-<br>
-<br>
-<br>
 {% endblock %}

@@ -2,62 +2,61 @@
 {% load static %}
 
 {% block title %}
-login
+Login
 {% endblock %}
 
 {% block main %}
 <div class="container-fluid">
-    <div class="row my-5 justify-content-center" style="background-image: url('{% static "img/images (9).jpg" %}'); background-repeat:no-repeat; background-size:cover; height:700px;" >
-        <div class="col-sm-12 my-5 shadow text-center">
-            <div class="row   justify-content-center">
-                <div class="col-sm-6 p-3 my-5 text-center" >
-                    {% if messages %}
-                    {% for m in messages %}
-                    <div class=" alert alert-success alert-dismissible fade show" role="alert">
-                        {{m}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div> 
-                    {% endfor %}
-                    {% endif %}
-                    <form method="post" class="p-3 my-2">
-                        {% csrf_token %}
-                        <h1 class=" text-center " >login</h1>
-                        <br>
-                        <div class="form-floating mb-3">
-                            <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
-
-                            <label for="floatingInput"><i class="fa-regular fa-user" style="color: green;"></i> Email
-                                address</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword"> <i class="fa-solid fa-lock" style="color:green;"></i>
-                                Password</label>
-                        </div>
-                        <div class="text-center mt-4">
-                            <button class="btn btn-primary w-25 " type="submit">login</button>
-                        </div>
-                        </form>
-                </div>
-                <!-- <div class="col-sm-6 py-5">
-                    <img src="{% static 'img/download (10).jpg' %}" alt="" style="height:500px; width:500px;"
-                        class="img-fluid">
-                </div> -->
-                <br>
-                <br>
+    <div class="row my-5 mx-0" style="min-height:700px;">
+        <div class="col-lg-6 d-flex align-items-center text-white p-5"
+            style="background: linear-gradient(135deg, #198754 0%, #146c43 100%);">
+            <div class="mx-auto" style="max-width:520px;">
+                <i class="fa-solid fa-book-open fa-3x mb-4"></i>
+                <h1 class="display-5 fw-bold">Welcome back to Book Point</h1>
+                <p class="fs-5 mt-3">Sign in to continue shopping, track your orders, and save your favorite books.</p>
             </div>
-<br>
-<br>
-<br>
         </div>
-        <br>
 
+        <div class="col-lg-6 d-flex align-items-center justify-content-center bg-light p-4">
+            <div class="card border-0 shadow rounded-4 w-100" style="max-width:520px;">
+                <div class="card-body p-4 p-md-5">
+                    {% if messages %}
+                        {% for m in messages %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ m }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <h2 class="text-center fw-bold mb-2" style="color:#1F2937;">Login</h2>
+                    <p class="text-center text-secondary mb-4">Enter your account details</p>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="email" name="username" class="form-control" id="floatingInput"
+                                placeholder="name@example.com" required>
+                            <label for="floatingInput">
+                                <i class="fa-regular fa-user text-success"></i> Email address
+                            </label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" name="password" class="form-control" id="floatingPassword"
+                                placeholder="Password" required>
+                            <label for="floatingPassword">
+                                <i class="fa-solid fa-lock text-success"></i> Password
+                            </label>
+                        </div>
+                        <button class="btn btn-success w-100 py-2 fw-bold" type="submit">Login</button>
+                        <p class="text-center mt-4 mb-0">
+                            New here?
+                            <a href="{% url 'register' %}" class="text-success fw-bold text-decoration-none">Create an account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-
-
-
-
-
 {% endblock %}

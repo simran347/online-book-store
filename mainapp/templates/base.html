@@ -25,21 +25,21 @@
   <div class="container-fluid">
 
     <!-- Header Section -->
-    <div class="row">
-      <div class="col-sm-4">
-        <h3 class="p-2" style="margin-left:100px; margin-top:10px; color:black;">
+    <div class="row align-items-center py-2 gx-3">
+      <div class="col-md-4 text-center text-md-start">
+        <h3 class="p-2 mb-0" style="color:black;">
           <i class="fa-solid fa-book" style="color: #1bc54e;"></i> Book Point
         </h3>
       </div>
-      <div class="col-sm-4">
-        <div style="height:40px; width:500px; border:1px solid black; margin-top:15px;" class="p-2">
+      <div class="col-md-4 my-2">
+        <div class="border border-dark rounded px-3 py-2 w-100" style="height:40px;">
           Search here...
         </div>
       </div>
-      <div class="col-sm-4" >
+      <div class="col-md-4 text-center text-md-end">
         
         {% if userid %}
-         <div class="dropdown" style="margin-left: 300px;">
+         <div class="dropdown d-inline-block">
               <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 {{userid}}
@@ -51,7 +51,7 @@
               </ul>
             </div>
             {%  else %}
-            <span class="float-end"><a href="{% url 'login' %}" class="btn btn-success text-white mt-4">Login</a></span>
+            <a href="{% url 'login' %}" class="btn btn-success text-white">Login</a>
          {% endif %} 
       </div>
     </div>
@@ -59,7 +59,7 @@
     <!-- Navigation Bar -->
     <div class="row bg-success ">
       <div class="col-sm-12 p-0">
-        <ul class="nav justify-content-center my-2">
+        <ul class="nav flex-wrap justify-content-center my-2">
           <li class="nav-item">
             <a class="nav-link active" href="{% url 'index' %}" style="color:white;">Home</a>
           </li>
@@ -93,7 +93,7 @@
     <div class="row bg-light">
       <div class="col-sm-10 mx-auto">
         <div class="row p-2">
-          <div class="col-sm-3">
+          <div class="col-12 col-sm-6 col-lg-3 mb-4">
             <h3>Our location</h3>
             <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-location-dot"
                 style="color: #19d77e;"></i>India</a><br>
@@ -110,7 +110,7 @@
             <a href="#" style="color:grey; text-decoration: none;""><i class=" fa-solid fa-location-dot"
               style="color: #19d77e;"></i>Japan</a>
           </div>
-          <div class="col-sm-3">
+          <div class="col-12 col-sm-6 col-lg-3 mb-4">
             <h3>Quick links</h3>
             <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
                 style="color: #29e90b;"></i>Home</a><br>
@@ -125,7 +125,7 @@
 
 
           </div>
-          <div class="col-sm-3">
+          <div class="col-12 col-sm-6 col-lg-3 mb-4">
             <h3>Extra Links</h3>
 
             <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
@@ -139,7 +139,7 @@
             <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-arrow-right"
                 style="color: #29e90b;"></i>Our services</a><br>
           </div>
-          <div class="col-sm-3">
+          <div class="col-12 col-sm-6 col-lg-3 mb-4">
             <h3>Contact Info</h3>
             <a href="#" style="color:grey; text-decoration: none;"><i class="fa-solid fa-phone-flip"
                 style="color: #1fffbc;"></i>+91 9794309753</a><br>
@@ -147,7 +147,7 @@
                 style="color: #1fffbc;"></i>+91 9794309753</a><br><br>
 
             <p><a href="mailto:softpro.Asif@gmail.com"
-                style="color:grey; text-decoration: none;">softpro.Asif@gmail.com</a></p><br>
+                style="color:grey; text-decoration: none;">Nysin.simran@gmail.com</a></p><br>
 
             <!-- Working Image -->
             <img src="{% static 'img/worldmap.png' %}" alt="Book Image" class="img-fluid mt-2">
@@ -169,7 +169,7 @@
     <br>
     <HR>
     </HR>
-    <h3 class="d-flex justify justify-content-center text-decoration-none" style="color:grey">Created by <a href="#"
+    <h3 class="d-flex justify justify-content-center text-center flex-wrap text-decoration-none px-2 fs-6" style="color:grey">Created by <a href="#"
         style="color:biue; text-decoration:none;">SimranTiwari </a> |
       all rights reserved</h3>
   </div>
@@ -182,29 +182,21 @@
     AOS.init();
   </script>
   <script>
-    var splide = new Splide('.splide', {
-      type: 'loop',
-      perPage: 5,
-      perMove: 1,
-      autoplay: true,
-      breakpoints: {
-        1200: { perpage: 5 },
-        640: { perpage: 2 },
-        400: { perpage: 2 },
-      },
-    });
-
-
-    splide.mount();
-
-
-    var splide = new splide('#new_arrivals', {
-      type: 'loop',
-      perpage: 3,
-      perMove: 1,
-      autoplay: true,
-    });
-    splide.mount();
+    if (document.querySelector('.splide')) {
+      var featuredSplide = new Splide('.splide', {
+        type: 'loop',
+        perPage: 5,
+        perMove: 1,
+        autoplay: true,
+        breakpoints: {
+          1200: { perPage: 4 },
+          768: { perPage: 3 },
+          576: { perPage: 2 },
+          400: { perPage: 1 },
+        },
+      });
+      featuredSplide.mount();
+    }
   </script>
 </body>
 

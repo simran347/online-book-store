@@ -5,30 +5,56 @@
 
   <!--home section start-->
   <div class="row p-0">
-    <div class="col-sm-12  p-0">
+    <div class="col-sm-12 p-0">
+      <div class="row g-0 align-items-stretch" style="min-height:520px;">
+        <div class="col-lg-6 d-flex align-items-center p-5"
+          style="background:#ecf7f0;">
+          <div class="ps-lg-5" data-aos="fade-right">
+            <span class="badge rounded-pill text-success mb-3 px-3 py-2"
+              style="background:#d7f1df;">Stories worth sharing</span>
+            <h1 class="display-4 fw-bold mb-3" style="color:#16372a;">
+              Open a Book.<br><span style="color:#198754;">Discover a World.</span>
+            </h1>
+            <p class="fs-5 text-secondary mb-4" style="max-width:540px;">
+              Find timeless classics, fresh fiction, and handpicked books for every kind of reader.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#featured-books" class="btn btn-success btn-lg px-4">Explore books</a>
+              <a href="{% url 'register' %}" class="btn btn-outline-success btn-lg px-4">Join Book Point</a>
+            </div>
+            <div class="d-flex gap-4 mt-5 text-secondary">
+              <div>
+                <h4 class="fw-bold mb-0 text-dark">100K+</h4>
+                <small>Book titles</small>
+              </div>
+              <div class="border-start ps-4">
+                <h4 class="fw-bold mb-0 text-dark">50K+</h4>
+                <small>Happy readers</small>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="row p-0">
-        <div class="col-sm-12 p-0" data-aos="fade-up-right"  data-aos-delay="300">
-          <img src="{% static 'img/nav.jpg' %}" alt=""   class="img-fluid">
+        <div class="col-lg-6 position-relative overflow-hidden">
+          <img src="{% static 'img/blog-3.jpg' %}" alt="Open book and paper planes"
+            class="w-100 h-100" style="object-fit:cover; min-height:520px;">
+          <div class="position-absolute bottom-0 start-0 m-4 card border-0 shadow rounded-4"
+            style="max-width:330px;">
+            <div class="card-body d-flex align-items-center p-3">
+              <div class="rounded-circle d-flex align-items-center justify-content-center text-white me-3"
+                style="width:54px; height:54px; background:#198754;">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <small class="text-success fw-bold">Reader favorite</small>
+                <h6 class="mb-0">Explore books everyone loves</h6>
+              </div>
+            </div>
+          </div>
         </div>
-       <div class="row p-0">
-        <div class="col-sm-5 p-0" data-aos="fade-up-right" >
-          <img src="{% static 'img/rakhi-banner.jpg' %}" alt="" style="height:322px; width:670px;">
-        </div>
-        <div class="col-sm-4 ms-4 p-0" data-aos="fade-left" data-aos-delay="300">
-          <img src="{% static 'img/4_inr.jpg' %}" alt="" style="width:885px;">
-        </div>
-       </div>
-       <div class="row p-0">
-        <div class="col-sm-5" data-aos="fade-up-right" data-aos-delay="300">
-          <img src="{% static 'img/WTR.png' %}" alt="" style="height:300px; width:650px;" >
-        </div>
-        <div class="col-sm-6" data-aos="fade-left" data-aos-delay="300">
-          <img src="{% static 'img/regionae.jpg' %}" alt="" style="height:300px; width:885px;" >
-        </div>
-       </div>
       </div>
 
+     
     </div>
   </div>
 
@@ -67,7 +93,7 @@
 <div class="row">
 
 </div>
-<div class="col-sm-12">
+<div class="col-sm-12" id="featured-books">
   <div class="col-sm-12" data-aos="fade-up"
      data-aos-duration="3000">
   <h2 class="text-center">
@@ -109,12 +135,12 @@
 <!--features box end-->
 <!--student image start-->
 <div class="row d-flex" id="studentimg">
-  <div class="col-sm-12 " style=" padding: 20px;" data-aos="flip-left "
+  <div class="col-sm-12 d-flex flex-column align-items-center justify-content-center text-center" style="padding:20px;" data-aos="flip-left "
      data-aos-easing="ease-out-cubic"
      data-aos-duration="2000">
-    <h3 class="me-2" style="margin-left:1100px; color:red;">Subscribes for latest updates</h3>
+    <h3 class="mb-3" style="color:red;">Subscribe for latest updates</h3>
     <input type="text" placeholder="Enter your email"
-      style="margin-left:1100px; width: 300px; height: 40px; border-radius: 20px; border: 1px solid rgb(180, 19, 19); padding-left: 20px; margin-top:20px;">
+      class="form-control" style="max-width:300px; height:40px; border-radius:20px; border:1px solid rgb(180, 19, 19); padding-left:20px;">
   </div>
 
 
@@ -321,15 +347,15 @@
 <!--50%start-->
 
   <div class="row p-0">
-    <div class="col-sm-8 p-0 " style="background-color: rgb(180, 238, 149); height:400px; width:930px; margin-left:10px ;" data-aos="fade-down-right">
-     <h2 style="margin-top: 70px; margin-left: 25px;" ><b><span style="color:rgb(239, 127, 36); " >deal of the day</span></b></h2>
-     <h1 style="margin-left: 25px;"><b><span  >upto 50% off</span></b></h1>
-     <p style="margin-left: 25px;"><span style="color:rgb(56, 157, 234)" >Good news for you, if you buy any book on Saturday and Sunday you will get 50% <br> off and also you will get free delivery.</span></p>
+    <div class="col-lg-8 p-5 " style="background-color: rgb(180, 238, 149); min-height:400px;" data-aos="fade-down-right">
+     <h2 ><b><span style="color:rgb(239, 127, 36); " >Deal of the day</span></b></h2>
+     <h1><b><span  >Up to 50% off</span></b></h1>
+     <p><span style="color:rgb(56, 157, 234)" >Buy any book on Saturday or Sunday and get 50% off with free delivery.</span></p>
      <br>
-                <button type="button" class="btn btn-success" style="margin-left: 25px;">Shop Now</button>
+                <button type="button" class="btn btn-success">Shop Now</button>
     </div>
-    <div class="col-sm-4 p-0 "data-aos="fade-down-left">
-      <img src="{% static 'img/images (7).jpg' %}"  alt="..." style="height:400px; width:580px;" >
+    <div class="col-lg-4 p-0 "data-aos="fade-down-left">
+      <img src="{% static 'img/images (7).jpg' %}" class="w-100" alt="Deal of the day" style="height:400px; object-fit:cover;" >
     </div>
   </div>
 
@@ -341,14 +367,14 @@
     <br>
 
     <div class="row">
-      <div class="col-sm-10 d-flex">
-        <div class="clo-sm-4 d-flex p-2 "data-aos="flip-left">
-          <div style="height:300px; width:400px; border:1px solid black;">
+      <div class="col-sm-10 d-flex flex-wrap justify-content-center">
+        <div class="col-md-4 d-flex p-2 "data-aos="flip-left">
+          <div class="w-100 border rounded p-2">
             <div
-              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              style="height:100px; width:100px; border:1px solid black; border-radius:50px; margin:20px auto 0;">
               <img src="{% static 'img/pic-2.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
             </div>
-            <div style="height:180px; width:400px;  ">
+            <div style="min-height:180px; width:100%;">
               <h4 style="text-align: center;">juliana</h4>
               <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
                 Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also
@@ -356,13 +382,13 @@
             </div>
           </div>
         </div>
-        <div class="clo-sm-4 d-flex p-2"data-aos="flip-up">
-          <div style="height:300px; width:400px; border:1px solid black;">
+        <div class="col-md-4 d-flex p-2"data-aos="flip-up">
+          <div class="w-100 border rounded p-2">
             <div
-              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              style="height:100px; width:100px; border:1px solid black; border-radius:50px; margin:20px auto 0;">
               <img src="{% static 'img/pic-3.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
             </div>
-            <div style="height:180px; width:400px;  ">
+            <div style="min-height:180px; width:100%;">
               <h4 style="text-align: center;">Joy</h4>
               <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
                 Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also
@@ -370,13 +396,13 @@
             </div>
           </div>
         </div>
-        <div class="clo-sm-4 d-flex p-2 "data-aos="flip-right">
-          <div style="height:300px; width:400px; border:1px solid black;">
+        <div class="col-md-4 d-flex p-2 "data-aos="flip-right">
+          <div class="w-100 border rounded p-2">
             <div
-              style="height:100px; width:100px; border:1px solid black; margin-left:150px ; border-radius:50px; margin-top:20px;">
+              style="height:100px; width:100px; border:1px solid black; border-radius:50px; margin:20px auto 0;">
               <img src="{% static 'img/pic-4.png' %}" alt="" style="height:100px; width:100px; border-radius:50px;">
             </div>
-            <div style="height:180px; width:400px;  ">
+            <div style="min-height:180px; width:100%;">
               <h4 style="text-align: center;">Oliveya</h4>
               <p style="text-align: center;" class="p-2">the website is very good and responsive , All The books
                 Available in This waebsites Are orighinsl And Very Cheap, you can buy Them Confortably. Payment Can Also

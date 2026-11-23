@@ -73,6 +73,177 @@
   background-position: center;
 }
 
+img {
+  max-width: 100%;
+}
+
+.site-banner-content,
+.site-banner-image {
+  min-width: 0;
+}
+
+@media (max-width: 991.98px) {
+  #studentimg {
+    min-height: 420px;
+    height: auto;
+  }
+
+  #studentimg h3,
+  #studentimg input {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #studentimg .col-sm-12 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .col-sm-8[style*="width:930px"],
+  .col-sm-4[style*="width:580px"] {
+    width: 100% !important;
+  }
+
+  .col-sm-8[style*="width:930px"] {
+    height: auto !important;
+    min-height: 320px;
+    margin-left: 0 !important;
+  }
+
+  .col-sm-8[style*="width:930px"] h2,
+  .col-sm-8[style*="width:930px"] h1,
+  .col-sm-8[style*="width:930px"] p,
+  .col-sm-8[style*="width:930px"] button {
+    margin-left: 20px !important;
+  }
+
+  .col-sm-4[style*="width:580px"] img {
+    width: 100% !important;
+    height: 320px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .display-4 {
+    font-size: 2.4rem;
+  }
+
+  .display-5 {
+    font-size: 2.1rem;
+  }
+
+  #bookStoreBanner {
+    overflow: hidden;
+  }
+
+  .row.g-0.align-items-stretch {
+    min-height: 0 !important;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:first-child {
+    min-height: 380px;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:last-child,
+  .row.g-0.align-items-stretch > .col-lg-6:last-child img {
+    min-height: 300px !important;
+  }
+
+  .col-sm-10.mx-auto,
+  .col-sm-12.mx-auto {
+    width: 94%;
+  }
+
+  .col-sm-10.d-flex,
+  .col-sm-10.d-flex.justify-content-around,
+  .col-sm-10.d-flex,
+  .col-sm-10[style],
+  .col-sm-10.mx-auto .row.row-cols-sm-3 {
+    flex-wrap: wrap;
+  }
+
+  .col-sm-10.d-flex.justify-content-around h3 {
+    width: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  .row.row-cols-sm-3 > [class*="col-sm"] {
+    width: 50%;
+  }
+
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-8 {
+    width: 100%;
+  }
+
+  [style*="width:400px"],
+  [style*="width:550px"],
+  [style*="width:500px"] {
+    width: 100% !important;
+  }
+
+  [style*="margin-left:150px"],
+  [style*="margin-left:180px"],
+  [style*="margin-left:300px"],
+  [style*="margin-left:500px"],
+  [style*="margin-left:1100px"] {
+    margin-left: auto !important;
+  }
+
+  [style*="height:300px; width:400px"] {
+    height: auto !important;
+    min-height: 300px;
+  }
+
+  [style*="height:180px; width:400px"] {
+    width: 100% !important;
+  }
+
+  .card-img-top,
+  .card img {
+    max-height: 280px;
+  }
+
+  #studentimg input {
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .row.row-cols-sm-3 > [class*="col-sm"],
+  .col-sm-10.d-flex.justify-content-around h3 {
+    width: 100%;
+  }
+
+  .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:first-child {
+    min-height: 340px;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:first-child .ps-lg-5 {
+    padding-left: 0 !important;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:first-child .d-flex {
+    flex-direction: column;
+  }
+
+  .row.g-0.align-items-stretch > .col-lg-6:first-child .d-flex a {
+    width: 100%;
+  }
+}
+
 
 
 

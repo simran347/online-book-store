@@ -1,81 +1,76 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}
+Register
+{% endblock %}
 
 {% block main %}
 <div class="container-fluid">
-    <div class="row"style="background-image: url('{% static "img/images (9).jpg" %}'); background-repeat:no-repeat; background-size:cover;">
-        <div class="col-sm-10 mx-auto" style="padding: 20px; border-radius: 10px;">
-            <div style="text-align: center;">
-                <h1 style="color: #1F2937;">Create Account</h1>
+    <div class="row my-5 mx-0">
+        <div class="col-lg-4 d-flex align-items-center text-white p-5"
+            style="background: linear-gradient(135deg, #198754 0%, #146c43 100%);">
+            <div>
+                <i class="fa-solid fa-user-plus fa-3x mb-4"></i>
+                <h1 class="fw-bold">Join Book Point</h1>
+                <p class="fs-5">Create an account for exclusive offers and a smoother shopping experience.</p>
+
+                <div class="mt-4">
+                    <p><i class="fa-solid fa-tag me-3"></i>Member-only discounts</p>
+                    <p><i class="fa-solid fa-truck-fast me-3"></i>Faster checkout</p>
+                    <p><i class="fa-solid fa-heart me-3"></i>Save books to your wishlist</p>
+                    <p><i class="fa-solid fa-clock-rotate-left me-3"></i>View your order history</p>
+                </div>
             </div>
-            <p class="text-center" style="color: #1F2937;">Create an account to enjoy exclusive benefits and stay updated with the latest
-                offers.</p>
-            <div class="row">
-                
-                <div class="col-sm-6">
-                <form method="post">
-                    {% csrf_token %}
+        </div>
 
-                
-                    <h3 style="color: #1F2937;">Register now</h3>
-                    <div class="mb-3">
-                        <input type="name" class="form-control" id="name" name="name" placeholder="Full name">
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control " class="my-5" id="email" name="email"
-                            placeholder="email">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control " class="my-5" id="Phone" name="contactno"
-                            placeholder="Phone number">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control " class="my-5" id="passward" name="password"
-                            placeholder="Passward">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control " class="my-5" id="confirm passward"
-                            name="cpassword" placeholder="confirm passward">
-                    </div>
-                    <div style="height:80px; width:300px; border:1px solid black; margin-top:20px;">
-                        <input type="checkbox" name="terms" id="terms"> I'm not robot
-                    </div>
-                    <br>
-                    <input type="checkbox" name="terms" id="terms">I agree to the<a href="#">terms and conditions </a>
+        <div class="col-lg-8 bg-light p-4 p-md-5">
+            <div class="card border-0 shadow rounded-4 mx-auto" style="max-width:760px;">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="fw-bold mb-2" style="color:#1F2937;">Create Account</h2>
+                    <p class="text-secondary mb-4">Fill in your details to get started.</p>
 
-                    <br><br>
-                    <button type="submit" class="btn btn-success">Submit</button><br>
-                    <h6>Already Have You An Account?<a href="#" style="color:purple; font-size: small;">Login Now</a>
-                    </h6>
-                </form>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="name">Full name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="phone">Phone number</label>
+                                <input type="text" class="form-control" id="phone" name="contactno" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="confirm-password">Confirm password</label>
+                                <input type="password" class="form-control" id="confirm-password" name="cpassword" required>
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-4">
+                            <input type="checkbox" class="form-check-input" name="terms" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the <a href="#" class="text-success">terms and conditions</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-success px-5 mt-4">Create account</button>
+                        <p class="mt-3 mb-0">
+                            Already have an account?
+                            <a href="{% url 'login' %}" class="text-success fw-bold text-decoration-none">Login now</a>
+                        </p>
+                    </form>
                 </div>
-                <div class="col-sm-5 p-2 mx-5 " style="color:rgb(0, 0, 0);" >
-                    <h3 style="color: #1F2937;">Why Register?</h3>
-                    <br>
-                    <h4><i class="fa-solid fa-tag " style="color:green"></i>exclusive discount</h4>
-                    <p style="color:white; font-size: small;" class="mx-4">Get members-only deals and promotions</p>
-                    <br>
-                    <h4> <i class="fa-solid fa-truck-fast" style="color:green"></i>Faster Checkout</h4>
-                    <p style="color:white; font-size: small;" class="mx-4">Save your details for quick purchases</p>
-                    <br>
-                    <h4> <i class="fa-solid fa-heart" style="color:green"></i>whishlist</h4>
-                    <p style="color:white; font-size: small;" class="mx-4">Save books you love for later</p>
-                    <br>
-                    <h4> <i class="fa-solid fa-timer" style="color:green"></i>Order History</h4>
-                    <p style="color:white; font-size: small;" class="mx-4">Track all your past purchases</p>
-
-                </div>
-
             </div>
         </div>
     </div>
 </div>
-</div>
-
-
-
-
-
-
 {% endblock main %}
