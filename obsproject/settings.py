@@ -20,13 +20,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m=*q%xg5l8vgmaqoo@+#^1)g-zl6op40%!m49vtnp&68+%b_r('
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+# Security settings
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "")
+
+DEBUG = False
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "online-book-store-raa1.vercel.app",
+    "online-book-store-ac38.vercel.app",
+    "online-book-store-ac38-9iakrg7vi.vercel.app",
+    "online-book-store-lovat-phi.vercel.app",
+    "online-book-store-ac38-33hfjlx1e.vercel.app",
+]
+
+# Automatically allow Vercel deployment domains
+for vercel_url in (
+    os.getenv("VERCEL_URL"),
+    os.getenv("VERCEL_PROJECT_PRODUCTION_URL"),
+):
+    if vercel_url:
+        ALLOWED_HOSTS.append(vercel_url)
 
 
 # Application definition
@@ -130,13 +147,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_PUBLISHABLE_KEY = 'your_publishable_key'
-STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY", "")
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mediconnect7781@gmail.com'  
-EMAIL_HOST_PASSWORD = 'humeuddsljamrezr' 
+
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
 
 
